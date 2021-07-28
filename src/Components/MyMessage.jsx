@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const MyMessage = ({message}) => {
+const MyMessage = ({message}) => {
     if(message.attachments && message.attachments.length > 0) {
         return (
             <img className="message-image" style={{float:'right'}}
@@ -15,3 +15,5 @@ export const MyMessage = ({message}) => {
         </div>
     )
 }
+
+export default MyMessage

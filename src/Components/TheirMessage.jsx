@@ -23,3 +23,6 @@ export const TheirMessage = ({lastMessage, message}) => {
         </div>
     )
 }
+
+
+export default TheirMessage

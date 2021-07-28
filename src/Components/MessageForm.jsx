@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { sendMessage } from 'react-chat-engine'
 
 
-export const MessageForm = (props) => {
+const MessageForm = (props) => {
     const { chatId, creds } = props
 
     const [value, setValue] = useState('')
@@ -44,3 +44,6 @@ export const MessageForm = (props) => {
         </form>
     )
 }
+
+
+export default MessageForm

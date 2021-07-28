@@ -1,9 +1,9 @@
 import React from 'react'
-import { MessageForm } from './MessageForm'
-import { MyMessage } from './MyMessage'
-import { TheirMessage } from './TheirMessage'
+import  MessageForm  from './MessageForm'
+import  MyMessage  from './MyMessage'
+import  TheirMessage  from './TheirMessage'
 
-export const ChatFeed = (props) => {
+const ChatFeed = (props) => {
     const { chats, activeChat, userName, messages } = props
     const chat = chats && chats[activeChat]
 
@@ -66,3 +66,5 @@ export const ChatFeed = (props) => {
         </div>
     )
 }
+
+export default ChatFeed

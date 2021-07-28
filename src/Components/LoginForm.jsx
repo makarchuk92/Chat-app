@@ -1,11 +1,31 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
-export const LoginForm = () => {
+
+
+const LoginForm = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+
+        const authObject = {
+            'Project-ID': 'ba27125f-1056-440d-92d6-8b9b72a30681',
+            'User-Name': username,
+            'User-Secret': password
+        }
+
+        try {
+            await axios.get('https://api.chatengine.io/chats', {headers: authObject})
+
+            localStorage.setItem('username', username)
+            localStorage.setItem('password', password)
+
+            window.location.reload()
+        } catch (error) {
+
+        }
     }
 
     return (
@@ -15,8 +35,8 @@ export const LoginForm = () => {
                 <form onSubmit={handleSubmit}>
                     <input type="text" className="input" placeholder="Username" required
                         value={username} onChange={e => setUsername(e.target.value)} />
-                    <input type="submit" className="input" placeholder="Password" required
-                        value={password} onChange={e => setPassword(e.target.value)} />
+                    <input type="password" className="input" 
+                        value={password} onChange={e => setPassword(e.target.value)} placeholder="Pasword" required/>
                     <div align="center">
                         <button type="submit" className="button">
                             <span>Start chatting</span>
@@ -27,3 +47,6 @@ export const LoginForm = () => {
         </div>
     )
 }
+
+
+export default LoginForm
