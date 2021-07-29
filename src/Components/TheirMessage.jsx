@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const TheirMessage = ({lastMessage, message}) => {
+const TheirMessage = ({lastMessage, message}) => {
     const isFirstMessageByUser = !lastMessage || lastMessage.sender.username !== message.sender.username
 
     return (
@@ -12,11 +12,13 @@ export const TheirMessage = ({lastMessage, message}) => {
                 />
             )}
             { message.attachments && message.attachments.length > 0 
-            ? ( <img className="message-image" style={{marginLeft: isFirstMessageByUser ? '4px' : '45px'}}
+            ? ( 
+            <img className="message-image" style={{marginLeft: isFirstMessageByUser ? '4px' : '4px'}}
             src={message.attachments[0].file} alt="message-attachment" />
             ) 
-            : ( <div className="message"
-                style={{ float: 'left', backgroundColor: '#CABCDC', marginLeft: isFirstMessageByUser ? '4px' : '45px' }} >
+            : ( 
+            <div className="message"
+                style={{ float: 'left', backgroundColor: '#CABCDC', marginLeft: isFirstMessageByUser ? '4px' : '48px' }} >
                 {message.text}
             </div>
             )}
